@@ -1,4 +1,4 @@
-export default function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <>
       <div className="flex h-24 items-center justify-between text-3xl">
@@ -12,3 +12,5 @@ export default function Navbar() {
     </>
   );
 }
+
+export default Navbar;
