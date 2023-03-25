@@ -13,6 +13,7 @@ const Home: NextPage = () => {
     <>
       <HtmlHead />
       <Navbar />
+      <img className="w-full" src="./images/homepage.jpg" alt="" />
     </>
   );
 };

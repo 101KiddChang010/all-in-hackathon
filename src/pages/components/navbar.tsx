@@ -1,6 +1,6 @@
 const Navbar: React.FC = () => {
   return (
-    <>
+    <div className="absolute w-full">
       <nav className="flex h-24 items-center justify-between text-3xl">
         <p className="ml-16">Diversify</p>
         <div className="mr-16">
@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
           </p>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
