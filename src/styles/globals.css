@@ -4,6 +4,6 @@
 
 @layer base {
   html {
-    @apply font-Merriweather;
+    @apply font-merriweather;
   }
 }
