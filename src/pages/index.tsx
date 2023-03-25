@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import Link from "next/link";
 import Navbar from "./components/navbar";
-import HtmlHead from "./htmlhead";
+import HtmlHead from "./components/htmlhead";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "~/utils/api";
