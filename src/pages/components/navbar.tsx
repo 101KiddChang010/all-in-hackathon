@@ -1,15 +1,20 @@
-const Navbar: React.FC = () => {
+const Navbar: React.FC<{ classNameExtras?: string }> = ({
+  classNameExtras,
+}) => {
   return (
-    <>
-      <nav className="flex h-24 items-center justify-between text-3xl">
-        <p className="ml-16">Diversify</p>
-        <div className="mr-16">
-          <p className="rounded-full border-2 border-solid border-black px-3 py-1">
-            LOGIN
-          </p>
-        </div>
-      </nav>
-    </>
+    <nav
+      className={
+        "flex h-24 w-full items-center justify-between text-3xl " +
+        classNameExtras
+      }
+    >
+      <p className="ml-16">Diversify</p>
+      <div className="mr-16">
+        <p className="rounded-full border-2 border-solid border-black px-3 py-1">
+          LOGIN
+        </p>
+      </div>
+    </nav>
   );
 };
 
