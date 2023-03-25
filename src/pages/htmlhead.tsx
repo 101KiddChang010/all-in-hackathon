@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function HtmlHead() {
+const HtmlHead: React.FC = () => {
   return (
     <Head>
       <title>Diversify</title>
@@ -20,3 +20,5 @@ export default function HtmlHead() {
     </Head>
   );
 }
+
+export default HtmlHead;

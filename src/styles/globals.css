@@ -4,6 +4,6 @@
 
 @layer base {
   html {
-    @apply font-merriweather;
+    @apply w-screen font-merriweather;
   }
 }
