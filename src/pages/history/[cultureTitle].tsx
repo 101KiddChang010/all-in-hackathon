@@ -22,8 +22,20 @@ const History: NextPage = () => {
       <HtmlHead />
       <Navbar />
       <main className="flex flex-col items-center justify-center">
-        <h1>Learn about the {cultureTitle} History!</h1>
+        <h1>
+          Learn about the{" "}
+          {typeof cultureTitle === "string"
+            ? cultureTitle.replace("_", " ")
+            : null}{" "}
+          History!
+        </h1>
         <div className="flex flex-col border border-solid border-blue-600">
+          <Link
+            className="w-60 bg-blue-500 py-2 text-center text-white"
+            href={"../history/" + cultureTitle}
+          >
+            Quiz
+          </Link>
           {/* <Link href={"../history/" + cultureTitle}>History</Link>
           <Link href={"../culture/" + cultureTitle}>Culture</Link>
           <Link href={"../people/" + cultureTitle}>Famous People</Link>
