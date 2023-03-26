@@ -10,8 +10,8 @@ const CultureDetail: NextPage = () => {
   const cultureTitle = router.query.cultureTitle;
 
   // const test = getQuiz("asian", "Mao");
-  const test = getQuiz("asian", "people", "Mao");
-  console.log(test);
+  // const test = getQuiz("asian", "Famous People", "Mao");
+  // console.log(test);
   return (
     <>
       <HtmlHead />
@@ -70,10 +70,15 @@ export async function getQuiz(group: string, topic: string, subtopic: string) {
     topic: topic,
     subtopic: subtopic,
   };
-  const response = await axios({
-    method: "post",
-    url: url,
-    data: request,
-  }).finally();
-  return response.data;
+  try {
+    const response = await axios({
+      method: "post",
+      url: url,
+      data: request,
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching quiz:", error);
+    throw error;
+  }
 }
