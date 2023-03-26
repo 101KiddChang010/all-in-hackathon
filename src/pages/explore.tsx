@@ -1,8 +1,7 @@
 import { type NextPage } from "next";
 import Navbar from "./components/navbar";
 import HtmlHead from "./components/htmlhead";
-// import Carousel from "./components/carousel";
-import Carousel from "./components/carouselresponsive";
+import Carousel from "./components/carousel";
 
 const Explore: NextPage = () => {
   return (

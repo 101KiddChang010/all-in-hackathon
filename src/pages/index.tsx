@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <Navbar classNameExtras="absolute" />
       <div className={"flex min-h-screen flex-col "}>
         <img
-          className="h-[60vh] w-full object-cover object-top"
+          className="h-[70vh] w-full object-cover object-top"
           src="./images/homepage.jpg"
           alt="Image of diverse set of people"
         />

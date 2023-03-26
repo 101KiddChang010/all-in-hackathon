@@ -13,19 +13,13 @@ import cultures from "../data/cultures";
 import Link from "next/link";
 
 const Carousel: React.FC<{
-  classExtra?: string;
+  className?: string;
   visibleSlides?: number;
   step?: number;
-}> = ({ classExtra, visibleSlides = 1, step = 1 }) => {
+}> = ({ className, visibleSlides = 1, step = 1 }) => {
   return (
     <CarouselProvider
-      className={classExtra}
-      // className="relative flex h-[44.375rem] w-[78.625rem] items-center justify-center transition duration-200 ease-out"
-      // className="relative flex w-[78.625rem] items-center justify-center transition duration-200 ease-out"
-      //   className={
-      //     "relative flex w-[78.625rem] items-center justify-center transition duration-200 ease-out " +
-      //     classExtra
-      //   }
+      className={className}
       naturalSlideWidth={300}
       naturalSlideHeight={430}
       isIntrinsicHeight={true}
@@ -34,10 +28,10 @@ const Carousel: React.FC<{
       step={step ? step : 1}
       infinite
     >
-      <div className="relative flex w-[78.625rem] items-center justify-center transition duration-200 ease-out ">
-        {/* <ButtonBackSlide /> */}
+      {/* <div className="relative flex items-center justify-center bg-purple-500 transition duration-200 ease-out md:bg-green-500 lg:min-w-[45vw] lg:bg-blue-500 "> */}
+      <div className="relative flex items-center justify-center transition duration-200 ease-out lg:min-w-[45vw] ">
         {visibleSlides != cultures.length ? <ButtonBackSlide /> : null}
-        <div className="mx-auto w-full overflow-hidden">
+        <div className="mx-auto w-full overflow-hidden  p-20 ">
           {visibleSlides != cultures.length ? (
             <Slider>
               <CultureSlides />
@@ -47,7 +41,6 @@ const Carousel: React.FC<{
           )}
           <DotGroup />
         </div>
-        {/* <ButtonNextSlide /> */}
         {visibleSlides != cultures.length ? <ButtonNextSlide /> : null}
       </div>
     </CarouselProvider>
@@ -79,10 +72,6 @@ const CultureSlides: React.FC = () => {
       {cultures.map((culture, index) => (
         <Slide key={index} index={index}>
           <CultureCard
-            // classExtra={
-            //   "animate-fade-in animate-duration-1 animate-delay-" +
-            //   (index + 1).toString()
-            // }
             title={culture.title}
             src={culture.img}
             alt={culture.alt}
@@ -104,30 +93,31 @@ const CultureCard: React.FC<{
   index: number;
 }> = ({ classExtra, title, src, alt, index, link }) => {
   return (
-    <div
+    <Link
       className={
-        // "relative flex flex-1 overflow-hidden bg-black " +
-        "relative flex flex-1 overflow-hidden text-xl text-gray-300 transition duration-300 ease-out hover:font-bold hover:text-black " +
+        "relative flex h-full w-full flex-1 overflow-hidden text-xl text-gray-300 transition duration-300 ease-out hover:font-bold hover:text-black " +
         classExtra +
         " " +
         (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
       }
+      href={link}
     >
-      <Link
-        href={link}
-        // className="relative h-[12rem] overflow-hidden md:h-[20rem] lg:h-[43rem]"
-        className="relative h-[12rem] overflow-hidden md:h-[20rem] lg:h-[43rem]"
+      <div
+        // className="relative h-0 overflow-hidden lg:h-[50rem]" // + "h-[60rem]"
+        // className="relative h-[50vh] w-[25vw] overflow-hidden"
+        className="relative h-[50vh] w-full overflow-hidden lg:w-[10vw]"
       >
+        {/* Ratio for cards is 5:13 */}
         <Image
-          className="object-cover object-center transition duration-500 ease-out md:hover:scale-105"
+          className="h-full w-full object-contain object-center transition duration-[225ms] ease-in md:object-cover md:hover:scale-105"
           fill
           src={src}
           alt={alt}
         />
-      </Link>
-      <Link href={link} className="relative w-full p-4 text-center capitalize">
+      </div>
+      <div className="relative w-full p-4 text-center capitalize">
         <h2>{title}</h2>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
