@@ -13,7 +13,7 @@ const Navbar: React.FC<{ classNameExtras?: string }> = ({
     >
       <nav
         className={
-          "xl:h-18 container flex items-center justify-between px-16 xl:text-2xl "
+          "xl:h-18 container flex items-center justify-between px-6 md:px-16 xl:text-2xl "
         }
       >
         <Link href="/" className="duration-400 transition hover:text-[#DE8746]">

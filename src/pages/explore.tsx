@@ -42,7 +42,7 @@ const Explore: NextPage = () => {
             {/* Small Screens */}
             <Carousel className="flex h-full w-full flex-1 items-center justify-center overflow-hidden align-middle md:hidden" />
 
-            <h4 className="text-center">MORE COMING SOON!</h4>
+            <h4 className="text-center text-gray-400">MORE COMING SOON!</h4>
           </section>
         </main>
       </div>

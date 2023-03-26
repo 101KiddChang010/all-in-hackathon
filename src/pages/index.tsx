@@ -22,10 +22,10 @@ const Home: NextPage = () => {
         <div className="flex h-[40vh] w-full flex-1 flex-col items-center justify-center gap-14 bg-gradient-to-r from-[#47B2FF] to-[#003256] text-center align-middle font-normal text-white">
           <div className="container flex flex-col items-center justify-center p-4 text-center align-middle">
             <div>
-              <h2 className="animate-fade-in animate-duration-1 mb-4 w-[50rem] text-5xl">
+              <h2 className="animate-fade-in animate-duration-1 mb-4 text-xl lg:w-[50rem] lg:text-5xl">
                 All inclusive space for educating about different cultures!
               </h2>
-              <h3 className="animate-fade-in animate-duration-1 mb-8 w-[50rem]">
+              <h3 className="animate-fade-in animate-duration-1 mb-8 text-sm  lg:w-[50rem]">
                 Discover the diverse cultures that make up America, often
                 referred to as the{" "}
                 <span className="text-[#DE8746]">&quot;melting pot&quot;</span>!
