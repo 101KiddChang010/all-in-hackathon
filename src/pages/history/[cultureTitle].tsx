@@ -3,43 +3,44 @@ import { type NextPage } from "next";
 import Link from "next/link";
 import HtmlHead from "../../components/htmlhead";
 import Navbar from "~/components/navbar";
-import { cultures } from "~/data/cultures";
-import { getQuiz } from "../api/fetchQuiz/fetchquiz";
+import { fetchQuiz } from "../api/fetchQuiz/fetchquiz";
 
 const History: NextPage = () => {
   const router = useRouter();
   const cultureTitle = router.query.cultureTitle;
 
-  // const currentCulture = () => {
-  //   cultures.forEach((culture) => culture.title == cultureTitle);
-  // };
-
-  const test = getQuiz("asian", "Famous People", "Mao");
+  const test = fetchQuiz("asian", "Famous People", "Mao");
   console.log(test);
 
   return (
     <>
       <HtmlHead />
       <Navbar />
-      <main className="flex flex-col items-center justify-center">
-        <h1>
-          Learn about the{" "}
+      <main className="flex flex-col items-center justify-center pt-8">
+        <h1 className="py-4 text-3xl font-bold">
           {typeof cultureTitle === "string"
             ? cultureTitle.replace("_", " ")
             : null}{" "}
-          History!
+          History
         </h1>
-        <div className="flex flex-col border border-solid border-blue-600">
+        <div className="container flex flex-col py-8">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </p>
           <Link
-            className="w-60 bg-blue-500 py-2 text-center text-white"
+            className="w-60 self-center bg-blue-500 py-2 text-center text-white"
             href={"../history/" + cultureTitle}
           >
             Quiz
           </Link>
-          {/* <Link href={"../history/" + cultureTitle}>History</Link>
-          <Link href={"../culture/" + cultureTitle}>Culture</Link>
-          <Link href={"../people/" + cultureTitle}>Famous People</Link>
-          <Link href={"../gallery/" + cultureTitle}>Gallery</Link> */}
         </div>
       </main>
     </>
@@ -47,3 +48,6 @@ const History: NextPage = () => {
 };
 
 export default History;
+function getQuiz(arg0: string, arg1: string, arg2: string) {
+  throw new Error("Function not implemented.");
+}
