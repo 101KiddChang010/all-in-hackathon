@@ -92,7 +92,7 @@ const CultureCard: React.FC<{
   alt: string;
   link: string;
   index: number;
-}> = ({ classExtra, title, src, alt, index, link }) => {
+}> = ({ classExtra = "", title, src, alt, index, link }) => {
   return (
     <Link
       className={
