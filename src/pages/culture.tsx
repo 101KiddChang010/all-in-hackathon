@@ -10,7 +10,6 @@ const Culture: NextPage<{
   famous: string;
   gallery: string;
 }> = ({ race, history, culture, famous, gallery }) => {
-  console.log(race);
   return (
     <>
       <HtmlHead />
