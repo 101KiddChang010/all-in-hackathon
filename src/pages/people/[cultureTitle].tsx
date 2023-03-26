@@ -11,7 +11,6 @@ import {
   hispanic,
   native_american,
 } from "~/data/people";
-import { getQuiz } from "../api/fetchQuiz/fetchquiz";
 
 const History: NextPage = () => {
   const router = useRouter();
@@ -33,9 +32,6 @@ const History: NextPage = () => {
   // const currentCulture = () => {
   //   cultures.forEach((culture) => culture.title == cultureTitle);
   // };
-
-  const test = getQuiz("asian", "Famous People", "Mao");
-  console.log(test);
 
   return (
     <>
