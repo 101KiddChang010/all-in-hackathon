@@ -3,31 +3,77 @@ const cultures = [
     title: "African",
     img: "/images/african.jpg",
     alt: "African American",
-    link: "/",
+    link: {
+      pathname: "/culture",
+      query: {
+        // how to access object key for object value :D
+        race: "African",
+        history: "/",
+        culture: "/",
+        famous: "/",
+        gallery: "/",
+      },
+    },
   },
   {
     title: "Indian",
     img: "/images/indian.jpg",
     alt: "Indian American",
-    link: "/",
+    link: {
+      pathname: "/culture",
+      query: {
+        race: "Indian",
+        history: "",
+        culture: "",
+        famous: "",
+        gallery: "",
+      },
+    },
   },
   {
     title: "Chinese",
     img: "/images/chinese.jpg",
     alt: "Chinese American",
-    link: "/",
+    link: {
+      pathname: "/culture",
+      query: {
+        race: "Chinese",
+        history: "",
+        culture: "",
+        famous: "",
+        gallery: "",
+      },
+    },
   },
   {
-    title: "Hispanics",
+    title: "Hispanic",
     img: "/images/hispanic.jpg",
     alt: "Hispanic American",
-    link: "/",
+    link: {
+      pathname: "/culture",
+      query: {
+        race: "Hispanic",
+        history: "",
+        culture: "",
+        famous: "",
+        gallery: "",
+      },
+    },
   },
   {
     title: "Native American",
     img: "/images/native_american.jpg",
     alt: "Native American",
-    link: "/",
+    link: {
+      pathname: "/culture",
+      query: {
+        race: "Native American",
+        history: "",
+        culture: "",
+        famous: "",
+        gallery: "",
+      },
+    },
   },
 ];
 

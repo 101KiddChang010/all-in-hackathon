@@ -71,7 +71,16 @@ const CultureCard: React.FC<{
   title: string;
   src: string;
   alt: string;
-  link: string;
+  link: {
+    pathname: string;
+    query: {
+      race: string;
+      history: string;
+      culture: string;
+      famous: string;
+      gallery: string;
+    };
+  };
   index: number;
 }> = ({ title, src, alt, index, link }) => {
   return (
