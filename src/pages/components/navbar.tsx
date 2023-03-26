@@ -4,7 +4,7 @@ const Navbar: React.FC<{ classNameExtras?: string }> = ({
   return (
     <nav
       className={
-        "flex h-16 w-full items-center justify-between text-2xl " +
+        "flex h-16 w-full items-center justify-between bg-[#EFEFEF] text-2xl " +
         classNameExtras
       }
     >
