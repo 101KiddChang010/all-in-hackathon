@@ -14,27 +14,33 @@ import {
   Slide,
   Slider,
 } from "pure-react-carousel";
+import Image from "next/image";
 
-export default () => (
+const Carousel: React.FC = () => (
   <CarouselProvider
     visibleSlides={3}
-    totalSlides={8}
-    step={2}
-    naturalSlideWidth={400}
-    naturalSlideHeight={500}
+    totalSlides={1}
+    step={1}
+    naturalSlideWidth={250}
+    naturalSlideHeight={650}
     hasMasterSpinner
     infinite
   >
-    <h2 className="">Infinite Carousel</h2>
-    <p>
-      A carousel that returns to the first slide if the user clicks the Next
-      button while on the last slide and returns to the last slide if the user
-      clicks the Back button while on the first slide. Also behaves similarly
-      with swiping left on the first image or right on the last image.
-    </p>
-    <Slider className="">
-      <Slide index={0}>
-        <img src="./media/img01.jpeg" />
+    <Slider className="h-[44.375rem] w-[78.625rem] overflow-hidden bg-red-500">
+      <Slide index={0} className="flex flex-col gap-2">
+        <p className="text-center">Chinese</p>
+        <div className="h-[43rem] w-full bg-blue-500 object-cover object-center">
+          <img
+            // className="h-auto w-[15.625rem]"
+            // h-[40.625rem] w-[15.625rem]
+            className="h-full bg-blue-500 object-cover object-center"
+            src="/images/chinese.jpeg"
+            alt="Chinese American"
+            // width={250}
+            // height={650}
+            // fill
+          />
+        </div>
       </Slide>
     </Slider>
     <ButtonBack>Back</ButtonBack>
@@ -42,3 +48,5 @@ export default () => (
     <DotGroup />
   </CarouselProvider>
 );
+
+export default Carousel;
