@@ -7,7 +7,7 @@ const Explore: NextPage = () => {
   return (
     <>
       <HtmlHead />
-      <div className="h-screen overflow-hidden bg-gradient-to-r from-white to-[#C7C7C7]">
+      <div className="h-screen overflow-hidden">
         <Navbar />
         {/* <Navbar classNameExtras="absolute" /> */}
         <main className="animate-fade-in animate-duration-1 flex h-full w-full flex-col items-center justify-center align-middle">

@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply m-0 w-screen overflow-x-hidden scroll-smooth p-0 font-merriweather text-[#343434];
+    @apply m-0 w-screen overflow-x-hidden scroll-smooth bg-gradient-to-r from-white to-[#C7C7C7] p-0 font-merriweather text-[#343434];
   }
 
   @keyframes fade-in {

@@ -38,26 +38,13 @@ const Carousel: React.FC<{
         {/* <ButtonBackSlide /> */}
         {visibleSlides != cultures.length ? <ButtonBackSlide /> : null}
         <div className="mx-auto w-full overflow-hidden">
-          <Slider>
-            <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
-              {/* Culture Cards */}
-              {cultures.map((culture, index) => (
-                <Slide key={index} index={index}>
-                  <CultureCard
-                    // classExtra={
-                    //   "animate-fade-in animate-duration-1 animate-delay-" +
-                    //   (index + 1).toString()
-                    // }
-                    title={culture.title}
-                    src={culture.img}
-                    alt={culture.alt}
-                    link={culture.link}
-                    index={index}
-                  />
-                </Slide>
-              ))}
-            </div>
-          </Slider>
+          {visibleSlides != cultures.length ? (
+            <Slider>
+              <CultureSlides />
+            </Slider>
+          ) : (
+            <CultureSlides />
+          )}
           <DotGroup />
         </div>
         {/* <ButtonNextSlide /> */}
@@ -82,6 +69,29 @@ const ButtonNextSlide: React.FC = () => {
     <ButtonNext className="absolute right-0 z-10 text-3xl text-gray-300 focus:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
       <MdChevronRight />
     </ButtonNext>
+  );
+};
+
+const CultureSlides: React.FC = () => {
+  return (
+    <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
+      {/* Culture Cards */}
+      {cultures.map((culture, index) => (
+        <Slide key={index} index={index}>
+          <CultureCard
+            // classExtra={
+            //   "animate-fade-in animate-duration-1 animate-delay-" +
+            //   (index + 1).toString()
+            // }
+            title={culture.title}
+            src={culture.img}
+            alt={culture.alt}
+            link={culture.link}
+            index={index}
+          />
+        </Slide>
+      ))}
+    </div>
   );
 };
 
