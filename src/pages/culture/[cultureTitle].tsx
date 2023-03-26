@@ -12,7 +12,7 @@ const CultureDetail: NextPage = () => {
     <>
       <HtmlHead />
       <Navbar />
-      <main className="mt-10 flex flex-col items-center justify-center">
+      <main className="mt-10 flex flex-col items-center justify-center text-center">
         <h1 className="text-3xl">
           Learn about the{" "}
           {typeof cultureTitle === "string"
@@ -20,28 +20,28 @@ const CultureDetail: NextPage = () => {
             : null}{" "}
           ethnicity!
         </h1>
-        <div className="flex">
-          <div className="mt-5 flex flex-col items-center justify-center gap-3 text-center text-white">
+        <div className="mt-5 flex gap-10 max-lg:flex-col-reverse">
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 text-white">
             <Link
-              className=" bg-blue-500 py-2"
+              className="w-60 bg-blue-500 py-2"
               href={"../history/" + cultureTitle}
             >
               History
             </Link>
             <Link
-              className="bg-blue-500 py-2"
+              className="w-60 bg-blue-500 py-2"
               href={"../culture/" + cultureTitle}
             >
               Culture
             </Link>
             <Link
-              className="bg-blue-500 py-2"
+              className="w-60 bg-blue-500 py-2"
               href={"../people/" + cultureTitle}
             >
               Famous People
             </Link>
           </div>
-          <div className="relative h-[60vh] w-full overflow-hidden lg:w-[20vw]">
+          <div className="relative h-[60vh] w-full lg:w-[15vw]">
             <Image
               className="h-full w-full object-contain object-center transition duration-[225ms] ease-in md:object-cover"
               src={"/images/" + cultureTitle + ".jpg"}
