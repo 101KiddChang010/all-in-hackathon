@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import Link from "next/link";
-import Navbar from "./components/navbar";
-import HtmlHead from "./components/htmlhead";
+import Navbar from "../components/navbar";
+import HtmlHead from "../components/htmlhead";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "~/utils/api";
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
               <h3 className="animate-fade-in animate-duration-1 mb-8 w-[50rem]">
                 Discover the diverse cultures that make up America, often
                 referred to as the{" "}
-                <span className="text-[#DE8746]">"melting pot"</span>!
+                <span className="text-[#DE8746]">&quot;melting pot&quot;</span>!
               </h3>
             </div>
             <Link
