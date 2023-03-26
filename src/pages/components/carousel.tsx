@@ -33,6 +33,11 @@ const Carousel: React.FC = () => (
           {cultures.map((culture, index) => (
             <Slide key={index} index={index}>
               <CultureCard
+                classExtra={"opacity-0 animate-fade-in animate-duration-1"}
+                // classExtra={
+                //   "animate-fade-in animate-duration-1 animate-delay-" +
+                //   (index + 1).toString()
+                // }
                 title={culture.title}
                 src={culture.img}
                 alt={culture.alt}
@@ -68,16 +73,19 @@ const ButtonNextSlide: React.FC = () => {
 };
 
 const CultureCard: React.FC<{
+  classExtra?: string;
   title: string;
   src: string;
   alt: string;
   link: string;
   index: number;
-}> = ({ title, src, alt, index, link }) => {
+}> = ({ classExtra, title, src, alt, index, link }) => {
   return (
     <div
       className={
         "relative flex flex-1 overflow-hidden " +
+        classExtra +
+        " " +
         (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
       }
     >

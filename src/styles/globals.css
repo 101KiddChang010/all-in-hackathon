@@ -7,4 +7,53 @@
   body {
     @apply m-0 w-screen overflow-x-hidden scroll-smooth p-0 font-merriweather text-[#343434];
   }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+  }
+  .animate-duration-1 {
+    animation-duration: 1s;
+  }
+  .animate-duration-2 {
+    animation-duration: 1s;
+  }
+  .animate-duration-3 {
+    animation-duration: 1s;
+  }
+  .animate-duration-4 {
+    animation-duration: 1s;
+  }
+  .animate-duration-5 {
+    animation-duration: 1s;
+  }
+
+  .animate-delay-1-2 {
+    animation-delay: 0.5s;
+  }
+  .animate-delay-1 {
+    animation-delay: 1s;
+  }
+  .animate-delay-2 {
+    animation-delay: 2s;
+  }
+  .animate-delay-3 {
+    animation-delay: 3s;
+  }
+  .animate-delay-4 {
+    animation-delay: 4s;
+  }
+  .animate-delay-5 {
+    animation-delay: 5s;
+  }
 }
