@@ -12,13 +12,13 @@ const Home: NextPage = () => {
   return (
     <>
       <HtmlHead />
-      <Navbar />
+      <Navbar classNameExtras="absolute" />
       <img
-        className="absolute z-0 w-screen"
+        className="w-full"
         src="./images/homepage.jpg"
         alt="Image of diverse set of people"
       />
-      <div className="absolute bottom-0 z-10 h-2/6 w-full bg-gradient-to-r from-[#47B2FF] to-[#003256]">
+      <div className="h-2/6 w-full bg-gradient-to-r from-[#47B2FF] to-[#003256]">
         <div className="flex h-full flex-col items-center justify-center text-center font-normal text-white">
           <p className="mb-5 w-[50rem] text-5xl">
             All inclusive space for educating about different cultures!
