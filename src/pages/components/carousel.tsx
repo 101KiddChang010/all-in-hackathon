@@ -1,11 +1,3 @@
-// import {
-//   CarouselProvider,
-//   Slider,
-//   Slide,
-//   ButtonBack,
-//   ButtonNext,
-// } from "pure-react-carousel";
-import React from "react";
 import {
   ButtonBack,
   ButtonNext,
@@ -15,59 +7,88 @@ import {
   Slider,
 } from "pure-react-carousel";
 import Image from "next/image";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import cultures from "../data/cultures";
 
 const Carousel: React.FC = () => (
   <CarouselProvider
-    visibleSlides={1}
-    totalSlides={2}
+    className=""
+    // className="relative flex items-center justify-center"
+    naturalSlideWidth={300}
+    naturalSlideHeight={430}
+    isIntrinsicHeight={true}
+    totalSlides={cultures.length}
+    visibleSlides={2}
     step={1}
-    naturalSlideWidth={250}
-    naturalSlideHeight={650}
-    hasMasterSpinner
-    // infinite
-    isPlaying
+    infinite
   >
-    <Slider>
-      <div
-        id="slider"
-        className="h-[44.375rem] w-[78.625rem] overflow-hidden bg-gray-200"
-      ></div>
-      <Slide index={0} className="flex h-full w-full flex-col gap-2">
-        <p className="text-center">African</p>
-        <div className="h-[43rem] w-full overflow-hidden bg-blue-500 object-cover object-center">
-          <Image
-            className="h-full w-full bg-blue-500 object-cover object-center"
-            src="/images/african.jpg"
-            alt="African American"
-            width={2000}
-            height={5200}
-            // fill
-          />
-        </div>
-      </Slide>
-
-      <Slide index={0} className="flex h-full w-full flex-col gap-2">
-        <p className="text-center">TWADSASD</p>
-        <div className="h-[43rem] w-full overflow-hidden bg-blue-500 object-cover object-center">
-          <Image
-            className="h-full w-full bg-blue-500 object-cover object-center"
-            src="/images/chinese.jpg"
-            alt="Chinese American"
-            width={2000}
-            height={5200}
-            // fill
-          />
-        </div>
-      </Slide>
-    </Slider>
-    <ButtonBack role="button" aria-label="slide backward" id="prev">
-      Back
-    </ButtonBack>
-    <ButtonNext role="button" aria-label="slide forward" id="next">
-      Next
-    </ButtonNext>
-    <DotGroup />
+    <div className="relative flex items-center justify-center transition duration-200 ease-out">
+      <ButtonBackSlide />
+      <div className="mx-auto h-full w-full overflow-x-hidden overflow-y-hidden">
+        <Slider>
+          <div className="flex h-full w-full items-center justify-start gap-8 transition duration-700 ease-out">
+            {/* Culture Cards */}
+            {cultures.map((culture, index) => (
+              <Slide key={index} index={index}>
+                <CultureCard
+                  title={culture.title}
+                  src={culture.img}
+                  alt={culture.alt}
+                  index={index}
+                />
+              </Slide>
+            ))}
+          </div>
+        </Slider>
+        <DotGroup />
+      </div>
+      <ButtonNextSlide />
+    </div>
   </CarouselProvider>
 );
 
 export default Carousel;
+
+const ButtonBackSlide: React.FC = () => {
+  return (
+    <ButtonBack className="absolute left-0 z-10 cursor-pointer text-3xl text-gray-300 focus:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+      <MdChevronLeft />
+    </ButtonBack>
+  );
+};
+
+const ButtonNextSlide: React.FC = () => {
+  return (
+    <ButtonNext className="absolute right-0 z-10 text-3xl text-gray-300 focus:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+      <MdChevronRight />
+    </ButtonNext>
+  );
+};
+
+const CultureCard: React.FC<{
+  title: string;
+  src: string;
+  alt: string;
+  index: number;
+}> = ({ title, src, alt, index }) => {
+  return (
+    <div
+      className={
+        "relative flex flex-1 overflow-hidden " +
+        (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
+      }
+    >
+      <div className="relative h-[43rem] overflow-hidden">
+        <Image
+          className="object-cover object-center transition duration-[225ms] ease-in md:hover:scale-105"
+          fill
+          src={src}
+          alt={alt}
+        />
+      </div>
+      <div className="relative w-full p-4 text-center capitalize">
+        <h2>{title}</h2>
+      </div>
+    </div>
+  );
+};
