@@ -23,9 +23,12 @@ const Home: NextPage = () => {
           <p className="mb-5 w-[50rem] text-5xl">
             All inclusive space for educating about different cultures!
           </p>
-          <div className="rounded-full border-transparent bg-[#DE8746] px-14 py-1">
-            <p className="">Explore</p>
-          </div>
+          <Link
+            href="/explore"
+            className="rounded-full border-transparent bg-[#DE8746] px-14 py-1"
+          >
+            <p>Explore</p>
+          </Link>
         </div>
       </div>
     </>
