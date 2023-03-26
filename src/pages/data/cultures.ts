@@ -3,31 +3,31 @@ const cultures = [
     title: "African",
     img: "/images/african.jpg",
     alt: "African American",
-    link: "/",
+    // link: "../culture/African",
   },
   {
     title: "Indian",
     img: "/images/indian.jpg",
     alt: "Indian American",
-    link: "/",
+    // link: "../culture/African",
   },
   {
     title: "Chinese",
     img: "/images/chinese.jpg",
     alt: "Chinese American",
-    link: "/",
+    // link: "../culture/Chinese",
   },
   {
-    title: "Hispanics",
+    title: "Hispanic",
     img: "/images/hispanic.jpg",
     alt: "Hispanic American",
-    link: "/",
+    // link: "../culture/Chinese",
   },
   {
     title: "Native American",
     img: "/images/native_american.jpg",
     alt: "Native American",
-    link: "/",
+    // link: "../culture/Chinese",
   },
 ];
 

@@ -19,6 +19,7 @@ const Carousel: React.FC<{
 }> = ({ className, visibleSlides = 1, step = 1 }) => {
   return (
     <CarouselProvider
+      //   className={className + " bg-red-500"}
       className={className}
       naturalSlideWidth={300}
       naturalSlideHeight={430}
@@ -29,7 +30,7 @@ const Carousel: React.FC<{
       infinite
     >
       {/* <div className="relative flex items-center justify-center bg-purple-500 transition duration-200 ease-out md:bg-green-500 lg:min-w-[45vw] lg:bg-blue-500 "> */}
-      <div className="relative flex items-center justify-center transition duration-200 ease-out lg:min-w-[45vw] ">
+      <div className="relative flex items-center justify-center align-middle transition duration-200 ease-out lg:min-w-[45vw] ">
         {visibleSlides != cultures.length ? <ButtonBackSlide /> : null}
         <div className="mx-auto w-full overflow-hidden  p-20 ">
           {visibleSlides != cultures.length ? (
@@ -67,7 +68,7 @@ const ButtonNextSlide: React.FC = () => {
 
 const CultureSlides: React.FC = () => {
   return (
-    <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
+    <div className="flex w-full items-center justify-center gap-8 align-middle transition duration-700 ease-out">
       {/* Culture Cards */}
       {cultures.map((culture, index) => (
         <Slide key={index} index={index}>
@@ -75,7 +76,7 @@ const CultureSlides: React.FC = () => {
             title={culture.title}
             src={culture.img}
             alt={culture.alt}
-            link={culture.link}
+            link={"../culture/" + culture.title}
             index={index}
           />
         </Slide>
@@ -95,7 +96,7 @@ const CultureCard: React.FC<{
   return (
     <Link
       className={
-        "relative flex h-full w-full flex-1 overflow-hidden text-xl text-gray-300 transition duration-300 ease-out hover:font-bold hover:text-black " +
+        "relative flex h-full w-full flex-1 items-center justify-center overflow-hidden align-middle text-xl text-gray-300 transition duration-300 ease-out hover:font-bold hover:text-black " +
         classExtra +
         " " +
         (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
