@@ -3,10 +3,10 @@ import openai
 from llama_index import SimpleDirectoryReader, GPTSimpleVectorIndex
 
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "yourKey"
 
 def generateText(group:str,topic:str,subtopic:str): 
-    openai.api_key="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"
+    openai.api_key="yourKey"
     prompt = "Generate a string of 300 word article with no special characters in {}'s {} with the topic focused on {}".format(group,topic,subtopic)
     model = "text-davinci-002"
     
@@ -29,7 +29,7 @@ def generateJSONQuiz(directory):
         questionJSON =  {
             "question":qa[0],
             "options":qa[1:5],
-            "key":qa[5]
+            "key":qa[5][1]
         }
         #response_json = json.loads(questionJSON)
         result.append(questionJSON)
