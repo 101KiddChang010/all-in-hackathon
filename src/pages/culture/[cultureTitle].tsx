@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { type NextPage } from "next";
-import { cultures } from "~/data/cultures";
 import Link from "next/link";
 import HtmlHead from "../../components/htmlhead";
 import Navbar from "~/components/navbar";
@@ -8,6 +7,10 @@ import Navbar from "~/components/navbar";
 const CultureDetail: NextPage = () => {
   const router = useRouter();
   const cultureTitle = router.query.cultureTitle;
+
+  // const test = getQuiz("asian", "Mao");
+  const test = getQuiz("asian", "people", "Mao");
+  console.log(test);
   return (
     <>
       <HtmlHead />
@@ -43,3 +46,20 @@ const CultureDetail: NextPage = () => {
 };
 
 export default CultureDetail;
+
+import axios from "axios";
+
+export async function getQuiz(group: string, topic: string, subtopic: string) {
+  const url = "http://127.0.0.1:5000/getQuiz";
+  const request = {
+    group: group,
+    topic: topic,
+    subtopic: subtopic,
+  };
+  const response = await axios({
+    method: "post",
+    url: url,
+    data: request,
+  }).finally();
+  return response.data;
+}
