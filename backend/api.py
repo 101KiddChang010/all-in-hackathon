@@ -7,8 +7,9 @@ def Generate():
     req_JSON = request.json
     group = req_JSON["group"]
     topic = req_JSON["topic"]
+    subtopic= req_JSON["subTopic"]
     return jsonify({
-        "text": generateText(group,topic),
+        "text": generateText(group,topic,subtopic),
         "questions": generateJSONQuiz("backend/data")
     })
 
