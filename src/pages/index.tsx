@@ -13,26 +13,36 @@ const Home: NextPage = () => {
     <>
       <HtmlHead />
       <Navbar classNameExtras="absolute" />
-
-      <img
-        className="w-full"
-        src="./images/homepage.jpg"
-        alt="Image of diverse set of people"
-      />
-
-      <div className="absolute bottom-0 h-2/6 w-full bg-gradient-to-r from-[#47B2FF] to-[#003256]">
-        <div className="flex h-full flex-col items-center justify-center text-center font-normal text-white">
-          <p className="animate-fade-in animate-duration-1 mb-5 w-[50rem] text-5xl">
-            All inclusive space for educating about different cultures!
-          </p>
+      <div className={"flex min-h-screen flex-col bg-red-500 "}>
+        <img
+          // className="h-2/6 w-auto object-contain object-center"
+          className="h-[60vh] w-full overflow-hidden bg-green-500 object-cover object-top"
+          src="./images/homepage.jpg"
+          alt="Image of diverse set of people"
+        />
+        <div className="flex h-full w-full flex-1 flex-col items-center justify-center gap-14 bg-gradient-to-r from-[#47B2FF] to-[#003256] text-center font-normal text-white">
+          <div>
+            <h2 className="animate-fade-in animate-duration-1 mb-4 w-[50rem] text-5xl">
+              All inclusive space for educating about different cultures!
+            </h2>
+            <h3 className="animate-fade-in animate-duration-1 mb-8 w-[50rem]">
+              Discover the diverse cultures that make up America, often referred
+              to as the <span className="text-[#DE8746]">"melting pot"</span>!
+            </h3>
+          </div>
           <Link
             href="/explore"
-            className="animate-fade-in animate-duration-1 animate-delay-1-2 rounded-full border-transparent bg-[#DE8746] px-14 py-1"
+            className="animate-fade-in animate-duration-1 animate-delay-1-2 rounded-full border-transparent bg-[#DE8746] px-14 py-1 text-xl transition duration-200 ease-out hover:scale-105"
           >
             <p>Explore</p>
           </Link>
         </div>
       </div>
+      {/* <img
+        className="w-full"
+        src="./images/homepage.jpg"
+        alt="Image of diverse set of people"
+      /> */}
     </>
   );
 };

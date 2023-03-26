@@ -6,18 +6,22 @@ const Navbar: React.FC<{ classNameExtras?: string }> = ({
   return (
     <nav
       className={
-        "flex h-12 w-full items-center justify-between text-base xl:h-16 xl:text-2xl " +
+        "flex h-12 w-full items-center justify-between px-16 xl:h-16 xl:text-2xl " +
         classNameExtras
       }
     >
-      <Link href="/" className="ml-16">
-        Diversify
+      <Link
+        href="/"
+        className="duration-400 text-[#343434] transition hover:text-[#DE8746]"
+      >
+        <h1>Diversify</h1>
       </Link>
-      <div className="mr-16">
-        <p className="rounded-full border-2 border-solid border-black px-3 py-1">
-          LOGIN
-        </p>
-      </div>
+      <Link
+        href="/"
+        className="duration-400 rounded-full border-2 border-solid border-[#343434] px-3 py-1 text-[#343434] transition hover:border-[#DE8746] hover:text-[#DE8746]"
+      >
+        <p>LOGIN</p>
+      </Link>
     </nav>
   );
 };
