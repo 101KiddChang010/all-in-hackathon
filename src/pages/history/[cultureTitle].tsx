@@ -4,6 +4,7 @@ import Link from "next/link";
 import HtmlHead from "../../components/htmlhead";
 import Navbar from "~/components/navbar";
 import { fetchQuiz } from "../api/fetchQuiz/fetchquiz";
+import { history } from "~/data/history";
 
 const History: NextPage = () => {
   const router = useRouter();
@@ -11,6 +12,9 @@ const History: NextPage = () => {
 
   const test = fetchQuiz("asian", "Famous People", "Mao");
   console.log(test);
+
+  // const response = getQuiz("african", "famous people", "MLK");
+  // console.log(response.questions[0].options[1]);
 
   return (
     <>
@@ -34,6 +38,9 @@ const History: NextPage = () => {
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
+            {/* {typeof cultureTitle === "string"
+              ? history[cultureTitle].history
+              : "Error Retrieving Data."} */}
           </p>
           <Link
             className="w-60 self-center bg-blue-500 py-2 text-center text-white"

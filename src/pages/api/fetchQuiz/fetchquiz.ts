@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function getQuiz(group: string, topic: string, subTopic: string) {
+export async function getQuiz(group: string, topic: string, subTopic: string) {
   const url = "http://127.0.0.1:5000/getQuiz";
   const request = {
     group: group,
@@ -22,7 +22,8 @@ export async function fetchQuiz(
   subTopic: string
 ) {
   const response = await getQuiz(group, topic, subTopic);
-  console.log(response.questions[0].options[1]);
+  // console.log(response.questions[0].options[1]);
+  console.log(response);
   return response;
 }
 
