@@ -9,7 +9,7 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import Image from "next/image";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { cultures } from "../data/cultures";
+import { cultures } from "../pages/data/cultures";
 import Link from "next/link";
 
 const Carousel: React.FC<{

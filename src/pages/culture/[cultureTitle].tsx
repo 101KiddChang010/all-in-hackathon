@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { type NextPage } from "next";
-import HtmlHead from "../components/htmlhead";
+import HtmlHead from "../../components/htmlhead";
 
 const CultureDetail: NextPage = () => {
   const router = useRouter();

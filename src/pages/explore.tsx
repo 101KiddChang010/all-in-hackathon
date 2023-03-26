@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
-import Navbar from "./components/navbar";
-import HtmlHead from "./components/htmlhead";
-import Carousel from "./components/carousel";
+import Navbar from "../components/navbar";
+import HtmlHead from "../components/htmlhead";
+import Carousel from "../components/carousel";
 
 const Explore: NextPage = () => {
   const baseClass = "";
