@@ -10,7 +10,7 @@ const Explore: NextPage = () => {
       <HtmlHead />
       <div className="bg-gradient-to-r from-white to-[#C7C7C7]">
         <Navbar classNameExtras={"absolute"} />
-        <main className="flex min-h-screen flex-col items-center justify-center ">
+        <main className="flex min-h-screen flex-col items-center justify-center">
           <Carousel />
         </main>
       </div>

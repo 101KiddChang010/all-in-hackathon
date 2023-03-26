@@ -12,24 +12,24 @@ const Home: NextPage = () => {
   return (
     <>
       <HtmlHead />
-      <div className="h-screen w-full bg-green-500">
-        <Navbar classNameExtras="absolute" />
-        <main>
-          <div className="h-1/4 w-full overflow-hidden bg-red-500 object-cover object-center">
-            <img src="./images/homepage.jpg" alt="" />
-          </div>
-          <div className="flex h-2/6 w-full flex-col items-center justify-center bg-gradient-to-r from-[#47B2FF] to-[#003256] p-20 text-center font-normal text-white">
-            <p className="mb-5 w-[50rem] text-5xl">
-              All inclusive space for educating about different cultures!
-            </p>
-            <Link
-              href="/explore"
-              className="rounded-full border-transparent bg-[#DE8746] px-14 py-1"
-            >
-              <p>Explore</p>
-            </Link>
-          </div>
-        </main>
+      <Navbar classNameExtras="absolute" />
+      <img
+        className="w-full"
+        src="./images/homepage.jpg"
+        alt="Image of diverse set of people"
+      />
+      <div className="h-2/6 w-full bg-gradient-to-r from-[#47B2FF] to-[#003256]">
+        <div className="flex h-full flex-col items-center justify-center text-center font-normal text-white">
+          <p className="mb-5 w-[50rem] text-5xl">
+            All inclusive space for educating about different cultures!
+          </p>
+          <Link
+            href="/explore"
+            className="rounded-full border-transparent bg-[#DE8746] px-14 py-1"
+          >
+            <p>Explore</p>
+          </Link>
+        </div>
       </div>
     </>
   );
