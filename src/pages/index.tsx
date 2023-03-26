@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <HtmlHead />
-      <Navbar />
+      <Navbar classNameExtras="absolute" />
       <img
         className="w-full"
         src="./images/homepage.jpg"

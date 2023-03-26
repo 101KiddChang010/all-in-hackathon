@@ -6,44 +6,46 @@ import {
   Slide,
   Slider,
 } from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 import Image from "next/image";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import cultures from "../data/cultures";
+import Link from "next/link";
 
 const Carousel: React.FC = () => (
   <CarouselProvider
-    className=""
-    // className="relative flex items-center justify-center"
+    // className=""
+    // className="relative flex h-[44.375rem] w-[78.625rem] items-center justify-center transition duration-200 ease-out"
+    className="relative flex w-[78.625rem] items-center justify-center transition duration-200 ease-out"
     naturalSlideWidth={300}
     naturalSlideHeight={430}
     isIntrinsicHeight={true}
     totalSlides={cultures.length}
-    visibleSlides={2}
+    visibleSlides={5}
     step={1}
     infinite
   >
-    <div className="relative flex items-center justify-center transition duration-200 ease-out">
-      <ButtonBackSlide />
-      <div className="mx-auto h-full w-full overflow-x-hidden overflow-y-hidden">
-        <Slider>
-          <div className="flex h-full w-full items-center justify-start gap-8 transition duration-700 ease-out">
-            {/* Culture Cards */}
-            {cultures.map((culture, index) => (
-              <Slide key={index} index={index}>
-                <CultureCard
-                  title={culture.title}
-                  src={culture.img}
-                  alt={culture.alt}
-                  index={index}
-                />
-              </Slide>
-            ))}
-          </div>
-        </Slider>
-        <DotGroup />
-      </div>
-      <ButtonNextSlide />
+    <ButtonBackSlide />
+    <div className="mx-auto w-full overflow-hidden">
+      <Slider>
+        <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
+          {/* Culture Cards */}
+          {cultures.map((culture, index) => (
+            <Slide key={index} index={index}>
+              <CultureCard
+                title={culture.title}
+                src={culture.img}
+                alt={culture.alt}
+                link={culture.link}
+                index={index}
+              />
+            </Slide>
+          ))}
+        </div>
+      </Slider>
+      <DotGroup />
     </div>
+    <ButtonNextSlide />
   </CarouselProvider>
 );
 
@@ -69,8 +71,9 @@ const CultureCard: React.FC<{
   title: string;
   src: string;
   alt: string;
+  link: string;
   index: number;
-}> = ({ title, src, alt, index }) => {
+}> = ({ title, src, alt, index, link }) => {
   return (
     <div
       className={
@@ -78,14 +81,14 @@ const CultureCard: React.FC<{
         (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
       }
     >
-      <div className="relative h-[43rem] overflow-hidden">
+      <Link href={link} className="relative h-[43rem] overflow-hidden">
         <Image
           className="object-cover object-center transition duration-[225ms] ease-in md:hover:scale-105"
           fill
           src={src}
           alt={alt}
         />
-      </div>
+      </Link>
       <div className="relative w-full p-4 text-center capitalize">
         <h2>{title}</h2>
       </div>
