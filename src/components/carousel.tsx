@@ -73,7 +73,11 @@ const CultureSlides: React.FC = () => {
       {cultures.map((culture, index) => (
         <Slide key={index} index={index}>
           <CultureCard
-            title={culture.title}
+            title={
+              typeof culture.title === "string"
+                ? culture.title.replace("_", " ")
+                : ""
+            }
             src={culture.img}
             alt={culture.alt}
             link={"../culture/" + culture.title}
