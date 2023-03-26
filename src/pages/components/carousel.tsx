@@ -12,42 +12,40 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import cultures from "../data/cultures";
 import Link from "next/link";
 
-const Carousel: React.FC = () => (
-  <CarouselProvider
-    // className=""
-    // className="relative flex h-[44.375rem] w-[78.625rem] items-center justify-center transition duration-200 ease-out"
-    className="relative flex w-[78.625rem] items-center justify-center transition duration-200 ease-out"
-    naturalSlideWidth={300}
-    naturalSlideHeight={430}
-    isIntrinsicHeight={true}
-    totalSlides={cultures.length}
-    visibleSlides={5}
-    step={1}
-    infinite
-  >
-    <ButtonBackSlide />
-    <div className="mx-auto w-full overflow-hidden">
-      <Slider>
-        <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
-          {/* Culture Cards */}
-          {cultures.map((culture, index) => (
-            <Slide key={index} index={index}>
-              <CultureCard
-                title={culture.title}
-                src={culture.img}
-                alt={culture.alt}
-                link={culture.link}
-                index={index}
-              />
-            </Slide>
-          ))}
+const Carousel: React.FC<{
+  className?: string;
+  visibleSlides?: number;
+  step?: number;
+}> = ({ className, visibleSlides = 1, step = 1 }) => {
+  return (
+    <CarouselProvider
+      className={className}
+      naturalSlideWidth={300}
+      naturalSlideHeight={430}
+      isIntrinsicHeight={true}
+      totalSlides={cultures.length}
+      visibleSlides={visibleSlides ? visibleSlides : 1}
+      step={step ? step : 1}
+      infinite
+    >
+      {/* <div className="relative flex items-center justify-center bg-purple-500 transition duration-200 ease-out md:bg-green-500 lg:min-w-[45vw] lg:bg-blue-500 "> */}
+      <div className="relative flex items-center justify-center transition duration-200 ease-out lg:min-w-[45vw] ">
+        {visibleSlides != cultures.length ? <ButtonBackSlide /> : null}
+        <div className="mx-auto w-full overflow-hidden  p-20 ">
+          {visibleSlides != cultures.length ? (
+            <Slider>
+              <CultureSlides />
+            </Slider>
+          ) : (
+            <CultureSlides />
+          )}
+          <DotGroup />
         </div>
-      </Slider>
-      <DotGroup />
-    </div>
-    <ButtonNextSlide />
-  </CarouselProvider>
-);
+        {visibleSlides != cultures.length ? <ButtonNextSlide /> : null}
+      </div>
+    </CarouselProvider>
+  );
+};
 
 export default Carousel;
 
@@ -67,7 +65,27 @@ const ButtonNextSlide: React.FC = () => {
   );
 };
 
+const CultureSlides: React.FC = () => {
+  return (
+    <div className="flex w-full items-center justify-start gap-8 transition duration-700 ease-out">
+      {/* Culture Cards */}
+      {cultures.map((culture, index) => (
+        <Slide key={index} index={index}>
+          <CultureCard
+            title={culture.title}
+            src={culture.img}
+            alt={culture.alt}
+            link={culture.link}
+            index={index}
+          />
+        </Slide>
+      ))}
+    </div>
+  );
+};
+
 const CultureCard: React.FC<{
+  classExtra?: string;
   title: string;
   src: string;
   alt: string;
@@ -82,25 +100,33 @@ const CultureCard: React.FC<{
     };
   };
   index: number;
-}> = ({ title, src, alt, index, link }) => {
+}> = ({ classExtra, title, src, alt, index, link }) => {
   return (
-    <div
+    <Link
       className={
-        "relative flex flex-1 overflow-hidden " +
+        "relative flex h-full w-full flex-1 overflow-hidden text-xl text-gray-300 transition duration-300 ease-out hover:font-bold hover:text-black " +
+        classExtra +
+        " " +
         (index % 2 == 0 ? "flex-col-reverse" : "flex-col")
       }
+      href={link}
     >
-      <Link href={link} className="relative h-[43rem] overflow-hidden">
+      <div
+        // className="relative h-0 overflow-hidden lg:h-[50rem]" // + "h-[60rem]"
+        // className="relative h-[50vh] w-[25vw] overflow-hidden"
+        className="relative h-[50vh] w-full overflow-hidden lg:w-[10vw]"
+      >
+        {/* Ratio for cards is 5:13 */}
         <Image
-          className="object-cover object-center transition duration-[225ms] ease-in md:hover:scale-105"
+          className="h-full w-full object-contain object-center transition duration-[225ms] ease-in md:object-cover md:hover:scale-105"
           fill
           src={src}
           alt={alt}
         />
-      </Link>
+      </div>
       <div className="relative w-full p-4 text-center capitalize">
         <h2>{title}</h2>
       </div>
-    </div>
+    </Link>
   );
 };

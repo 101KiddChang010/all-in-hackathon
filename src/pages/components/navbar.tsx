@@ -4,21 +4,30 @@ const Navbar: React.FC<{ classNameExtras?: string }> = ({
   classNameExtras,
 }) => {
   return (
-    <nav
+    <div
       className={
-        "flex h-12 w-full items-center justify-between text-base xl:h-16 xl:text-2xl " +
-        classNameExtras
+        "flex h-14 w-full items-center justify-center " + classNameExtras
       }
     >
-      <Link href="/" className="ml-16">
-        Diversify
-      </Link>
-      <div className="mr-16">
-        <p className="rounded-full border-2 border-solid border-black px-3 py-1">
-          LOGIN
-        </p>
-      </div>
-    </nav>
+      <nav
+        className={
+          "xl:h-18 container flex items-center justify-between px-16 xl:text-2xl "
+        }
+      >
+        <Link
+          href="/"
+          className="duration-400 text-[#343434] transition hover:text-[#DE8746]"
+        >
+          <h1>Diversify</h1>
+        </Link>
+        <Link
+          href="/"
+          className="duration-400 rounded-full border-2 border-solid border-[#343434] px-3 py-1 text-[#343434] transition hover:border-[#DE8746] hover:text-[#DE8746]"
+        >
+          <p>LOGIN</p>
+        </Link>
+      </nav>
+    </div>
   );
 };
 
