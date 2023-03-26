@@ -9,9 +9,6 @@ const CultureDetail: NextPage = () => {
   const router = useRouter();
   const cultureTitle = router.query.cultureTitle;
 
-  // const test = getQuiz("asian", "Mao");
-  // const test = getQuiz("asian", "Famous People", "Mao");
-  // console.log(test);
   return (
     <>
       <HtmlHead />
