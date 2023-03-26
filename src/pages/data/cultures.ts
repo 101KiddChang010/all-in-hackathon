@@ -1,4 +1,4 @@
-const cultures = [
+export const cultures = [
   {
     title: "African",
     img: "/images/african.jpg",
@@ -30,8 +30,6 @@ const cultures = [
     // link: "../culture/Chinese",
   },
 ];
-
-export default cultures;
 
 export const African = {
   history: {
